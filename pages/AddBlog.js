@@ -16,15 +16,17 @@ const AddBlog = () => {
 
   const addToBlogs = async () => {
     blogInput.id = data[data.length - 1].id + 1;
-
     // call api here
-
     try {
-      const response = await fetch("/api/addData", {
+      const response = await fetch("/api/addBlog", {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(blogInput),
       });
       const data = await response.json();
+      console.log("Data at nextjs: ", data);
       console.log(data);
     } catch (error) {
       console.error(error);

@@ -4,7 +4,7 @@ const Posts = (props) => {
   const { blogs } = props;
   return (
     <div className="d-flex flex-wrap m-5">
-      {blogs.data?.map((p) => {
+      {blogs.data?.blogs.map((p) => {
         return (
           <div key={p.id} className="border border-dark m-2 p-3">
             <h3>{p.title}</h3>

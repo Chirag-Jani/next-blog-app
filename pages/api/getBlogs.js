@@ -1,6 +1,8 @@
-import { data } from "@/Data/demo";
+// import { data } from "@/Data/demo";
 
-const getData = (req, res) => {
+const getData = async (req, res) => {
+  const blogs = await fetch("http://localhost:5000/api/getBlogs");
+  const data = await blogs.json();
   res.status(200).json({ data: data });
 };
 
