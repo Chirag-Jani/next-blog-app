@@ -6,7 +6,7 @@ const Posts = (props) => {
     <div className="d-flex flex-wrap m-5">
       {blogs.data?.blogs.map((p) => {
         return (
-          <div key={p.id} className="border border-dark m-2 p-3">
+          <div key={p._id} className="border border-dark m-2 p-3">
             <h3>{p.title}</h3>
             <p className="fs-5">
               {p.description.slice(0, 25)}... {"  "}

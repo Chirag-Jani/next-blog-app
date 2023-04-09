@@ -11,7 +11,6 @@ router.get("/getBlogs", async (req, res) => {
 router.post("/addBlog", async (req, res) => {
   const blogInput = req.body;
   let blog = await Blog.create({
-    id: blogInput.id,
     title: blogInput.title,
     description: blogInput.description,
     content: blogInput.content,

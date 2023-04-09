@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { data } from "../Data/demo";
 
 const AddBlog = () => {
   const [blogInput, setBlogInput] = useState({
-    id: 0,
     title: "",
     description: "",
     content: "",
@@ -15,7 +13,6 @@ const AddBlog = () => {
   };
 
   const addToBlogs = async () => {
-    blogInput.id = data[data.length - 1].id + 1;
     // call api here
     try {
       const response = await fetch("/api/addBlog", {
@@ -26,8 +23,6 @@ const AddBlog = () => {
         body: JSON.stringify(blogInput),
       });
       const data = await response.json();
-      console.log("Data at nextjs: ", data);
-      console.log(data);
     } catch (error) {
       console.error(error);
     }
