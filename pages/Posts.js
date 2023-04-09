@@ -2,18 +2,19 @@ import Link from "next/link";
 
 const Posts = (props) => {
   const { blogs } = props;
-  console.log(blogs.data);
   return (
-    <div>
+    <div className="d-flex flex-wrap m-5">
       {blogs.data?.map((p) => {
         return (
-          <div key={p.id}>
+          <div key={p.id} className="border border-dark m-2 p-3">
             <h3>{p.title}</h3>
-            <p>
+            <p className="fs-5">
               {p.description.slice(0, 25)}... {"  "}
-              <Link href={`blogs/${p.title}`}>Read More</Link>
+              <Link className="fs-6" href={`blogs/${p.title}`}>
+                Read More
+              </Link>
             </p>
-            <p>- By {p.auther}</p>
+            <p>- By {p.author}</p>
           </div>
         );
       })}
