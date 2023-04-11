@@ -5,15 +5,13 @@ const Posts = (props) => {
   const deleteBlog = async (id) => {
     console.log("id before calling api: ", id);
     try {
-      const response = await fetch("/api/deleteBlog", {
+      const response = await fetch(`/api/deleteBlog/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(id),
       });
       const data = await response.json();
-      console.log(data);
     } catch (error) {
       console.error(error);
     }
@@ -33,12 +31,20 @@ const Posts = (props) => {
             </p>
             <p>- By {p.author}</p>
             <button
-              className="btn btn-danger"
+              className="btn btn-danger me-3"
               onClick={() => {
                 deleteBlog(p._id);
               }}
             >
               Delete
+            </button>
+            <button
+              className="btn btn-primary me-3"
+              onClick={() => {
+                console.log(p._id);
+              }}
+            >
+              Edit
             </button>
           </div>
         );

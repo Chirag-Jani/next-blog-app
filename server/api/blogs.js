@@ -19,4 +19,9 @@ router.post("/addBlog", async (req, res) => {
   res.status(200).json({ success: true, blog });
 });
 
+router.delete("/deleteBlog/:id", async (req, res) => {
+  let blog = await Blog.findByIdAndDelete(req.params.id);
+  res.status(200).json({ success: "Blog Deleted.", blog });
+});
+
 module.exports = router;
